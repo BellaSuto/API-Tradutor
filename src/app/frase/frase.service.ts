@@ -10,27 +10,25 @@ export class FraseService {
         private readonly fraseRepository: Repository<FraseEntity>
     ) { }
 
-    async saveFrase(linguagem, frase, traducao) {
+    async saveFrase(linguagem:string, frase:string, traducao:string) {
 
         await this.fraseRepository.save(new FraseEntity(linguagem, frase, traducao))
     }
 
     async translate(linguagem, frase) {
-        console.log(frase)
 
         const consumoApi = await fetch(`https://api.funtranslations.com/translate/${linguagem}.json?text=${frase.frase}`);
         const api = await consumoApi.json();
 
-        //let translate: string = api.contents.translated
-        //console.log(api.contents.translated)
+        let translate: string = api.contents.translated
         
-        //this.saveFrase(linguagem, frase, translate)
+        this.saveFrase(linguagem, frase.frase, translate);
 
         return api;
     }
 
     async findAll(){
-        await this.fraseRepository.find();
+        return await this.fraseRepository.find();
     }
 
     async findOneOrFail(id: number) {
@@ -49,7 +47,7 @@ export class FraseService {
 
     async deleteById(id) {
         await this.findOneOrFail(id);
-        await this.fraseRepository.softDelete(id);
+        await this.fraseRepository.delete(id);
     }
 
 

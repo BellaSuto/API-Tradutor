@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "4aa27d62-1f6f-4408-9ea0-7766daa4ba37",
+		"name": "api-translator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23968234"
+	},
+	"item": [
+		{
+			"name": "salvar tradução",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"frase\":\"mother of dragons\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/translate/valyrian",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"translate",
+						"valyrian"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/translate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"translate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar um",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"frase\":\"mother of dragons\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/translate/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"translate",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "atualizar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"linguagem\": \"hodor\",\r\n        \"frase\": \"Mother of dragons\",\r\n        \"traducao\": \"Hodor hodor hodor hodor hodor hodor hodor\",\r\n        \"id\": 2,\r\n        \"criadoEm\": \"2023-01-12T00:04:07.743Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/translate/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"translate",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/translate/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"translate",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
